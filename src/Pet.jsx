@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom";
+
 const Pet = (props) => {
   const { name, animal, breed, images, location, id } = props;
-  const pushpin = '\u{1F4CD}';
+  const pushpin = "\u{1F4CD}";
 
   //placeholder image
   let hero = "http://pets-images.dev-apis.com/pets/none.jpg";
@@ -8,18 +10,16 @@ const Pet = (props) => {
     hero = images[0];
   }
 
-
   return (
-    <a href={`/details/${id}`} className="pet">
+    <Link to={`/details/${id}`} className="pet">
       <div className="image-container">
         <img src={hero} alt={name} />
       </div>
       <div className="info">
         <h1>{name}</h1>
         <h2>{`${animal} — ${breed} — ${location} ${pushpin}`}</h2>
-
       </div>
-    </a>
+    </Link>
   );
 };
 
